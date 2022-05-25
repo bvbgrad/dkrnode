@@ -1,18 +1,18 @@
 # fill in the blanks to dockerize this node app
-FROM
+FROM node:16-bullseye-slim
 
-EXPOSE
+EXPOSE 3000
 
-RUN
+RUN apt-get update -y && apt-get install tini
 
-WORKDIR
+WORKDIR /app
 
-COPY
+COPY package*.json ./
 
-RUN
+RUN npm install && npm cache clean --force
 
-COPY
+COPY . .
 
-ENTRYPOINT
+#ENTRYPOINT ["tini", "--"]
 
-CMD
+CMD ["node", "app.js"]

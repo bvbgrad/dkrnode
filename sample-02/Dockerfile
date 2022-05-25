@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:16-bullseye-slim
 
 EXPOSE 3000
 
